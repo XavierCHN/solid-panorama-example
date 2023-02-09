@@ -24,7 +24,7 @@ export default function compatiblePanorama(options?: {}): Plugin {
                 // 给模块创建xml文件
                 const xmlPath = join(
                     __dirname,
-                    `../addon/content/solid-example/panorama/layout/custom_game/${chunk.fileName.replace(
+                    `../content/panorama/layout/custom_game/${chunk.fileName.replace(
                         '.js',
                         '.xml'
                     )}`

@@ -1,12 +1,4 @@
-import chokidar from 'chokidar';
-import {
-    readdirSync,
-    readFileSync,
-    statSync,
-    existsSync,
-    Stats,
-    writeFileSync
-} from 'fs';
+import { ensureDir, ensureDirSync } from 'fs-extra';
 import * as rollup from 'rollup';
 import path, { join } from 'path';
 import {
@@ -60,8 +52,13 @@ function StartRollup(): void {
  * 任务入口
  */
 export default async function TaskPUI() {
+    // 确保三个目录存在
+    ensureDirSync('./content/panorama/layout/custom_game');
+    ensureDirSync('./content/panorama/scripts/custom_game');
+    ensureDirSync('./content/panorama/styles/custom_game');
+
     await bundlePanoramaPolyfill({
-        output: './addon/content/solid-example/panorama/scripts/custom_game/panorama-polyfill.js',
+        output: './content/panorama/scripts/custom_game/panorama-polyfill.js',
         using: { console: true, timers: true },
         merges: [join(__dirname, 'custom-polyfill.js')]
     });

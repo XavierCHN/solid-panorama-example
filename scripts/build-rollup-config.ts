@@ -31,7 +31,7 @@ export default function GetRollupWatchOptions(rootPath: string) {
         input: inputFiles,
         output: {
             sourcemap: false,
-            dir: 'addon/content/solid-example/panorama/scripts/custom_game',
+            dir: 'content/panorama/scripts/custom_game',
             format: 'cjs',
             entryFileNames: `[name].js`,
             chunkFileNames: `[name].js`,
@@ -95,14 +95,14 @@ export default function GetRollupWatchOptions(rootPath: string) {
                 inputFiles,
                 dir: join(
                     __dirname,
-                    '../addon/content/solid-example/panorama/layout/custom_game'
+                    '../content/panorama/layout/custom_game'
                 )
             }),
             rollupPluginScss({
                 inputFiles,
                 dir: join(
                     __dirname,
-                    '../addon/content/solid-example/panorama/styles/custom_game'
+                    '../content/panorama/styles/custom_game'
                 )
             })
         ]
